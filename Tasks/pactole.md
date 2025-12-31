@@ -17,8 +17,8 @@
 - [x] Define expense categories (housing, food, transport, etc.) ✅ 2025-12-29
 - [x] Define recurring vs variable expenses ✅ 2025-12-29
 - [x] Analyze bank statements to populate actual data ✅ 2025-12-29
-- [ ] Define payment methods tracking
-- [ ] Refine "other" category (155 uncategorized transactions)
+- [x] Define payment methods tracking ✅ 2025-12-30
+- [x] Refine "other" category (reduced from 203 to 96 transactions) ✅ 2025-12-30
 
 ## Phase 3: Bank Accounts
 - [x] List all bank accounts ✅ 2025-12-29
@@ -28,12 +28,12 @@
 
 ## Phase 4: Projections
 - [x] Define provisional bonus structure ✅ 2025-12-29
-- [ ] Define expected annual increases
-- [ ] Define known future expenses
+- [x] Define expected annual increases ✅ 2025-12-30
+- [x] Define known future expenses ✅ 2025-12-30
 
 ## Phase 5: Data Sources & Paths
 - [x] Path to pay slips ✅ 2025-12-29
-- [ ] Bank statement import format
+- [x] Bank statement import format ✅ 2025-12-30
 - [x] Other data sources ✅ 2025-12-29
 
 ---
@@ -105,6 +105,91 @@ Housing, Utilities, Insurance, Transport, Food, Health, Education, Entertainment
 | **TOTAL** | **~130,036 EUR** | **~10,836** |
 
 **Next steps:**
-- Refine categorization rules for "other" category
+- ~~Refine categorization rules for "other" category~~ ✅
 - Add bank statement import format documentation
+
+### 2025-12-30: Phase 2 Complete
+**Categorization refined:**
+- Added 50+ new patterns covering restaurants, hotels, subscriptions, gifts, pets
+- Separated business (Capacitor) expenses from personal (is_business_expense flag)
+- Internal transfers properly excluded (credit card statements, account transfers)
+- Reduced uncategorized from 203 (70k EUR) → 96 (9.2k EUR)
+
+**Updated expense summary (personal only):**
+| Category | Amount | Monthly Avg |
+|----------|--------|-------------|
+| Housing | 62,777 EUR | 5,231 |
+| Utilities | 15,544 EUR | 1,295 |
+| Subscriptions | 12,346 EUR | 1,029 |
+| Taxes | 10,970 EUR | 914 |
+| Other (bank fees, electronics) | 9,251 EUR | 771 |
+| Food | 8,582 EUR | 715 |
+| Insurance | 6,158 EUR | 513 |
+| Professional | 4,483 EUR | 374 |
+| Transport | 1,914 EUR | 159 |
+| Gifts | 1,601 EUR | 133 |
+| Travel | 1,207 EUR | 101 |
+| Entertainment | 891 EUR | 74 |
+| Clothing | 478 EUR | 40 |
+| Pets | 204 EUR | 17 |
+| Health | 186 EUR | 16 |
+| **TOTAL** | **136,591 EUR** | **11,383** |
+
+**Business expenses (Capacitor):** 21,209 EUR
+**Internal transfers (excluded):** 283,364 EUR
+
+**Payment methods tracking added:**
+- PaymentMethod enum: CARD, DIRECT_DEBIT, TRANSFER, CHECK, CASH, INTERNAL, OTHER
+- Automatic detection from transaction description
+- 13 unit tests for payment method detection
+
+**Files modified:**
+- `pactole/services/categorizer.py` - Expanded rules, added CategorizedTransactions
+- `pactole/services/bank_parser.py` - Added PaymentMethod enum and detection
+- `tests/test_bank_parser.py` - Added 13 payment method tests
+- `scripts/analyze_other.py` - Enhanced analysis with payment methods
+
+### 2025-12-30: Phase 4 Complete
+**Projections added to financial_config.yaml:**
+
+**Annual increase assumptions:**
+- Salary: 3.8% per year
+- Expense inflation: 2.5% per year (general)
+
+**Bonus projections (based on last 2 years):**
+- MIC: ~18,500 EUR/year (March)
+- LTCI: Time-vested portions ($7.9k-$16.3k/year depending on year)
+- Retention: 3 x 62,100 EUR remaining (Dec 2025, Dec 2026 x2)
+
+**Known future expenses:**
+| Expense | Amount | Date | Priority |
+|---------|--------|------|----------|
+| House windows | 20,000 EUR | Feb 2026 | High |
+| House painting | 10,000 EUR | Apr 2026 | Medium |
+| Kitchen renovation | 15,000 EUR | S2 2026/S1 2027 | Medium (flexible) |
+| **TOTAL** | **45,000 EUR** | | |
+
+**5-year salary projection:**
+| Year | Gross Monthly | Annual Gross |
+|------|---------------|--------------|
+| 2025 | 10,948 EUR | 131,371 EUR |
+| 2026 | 11,364 EUR | 136,363 EUR |
+| 2027 | 11,796 EUR | 141,553 EUR |
+| 2028 | 12,244 EUR | 146,932 EUR |
+| 2029 | 12,710 EUR | 152,516 EUR |
+| 2030 | 13,193 EUR | 158,312 EUR |
+
+### 2025-12-30: Phase 5 Complete - TASK COMPLETE
+**Bank statement import format documented:**
+- Created `docs/bank_statement_formats.md`
+- Documented 3 bank formats: Credit Mutuel, CIC, Revolut Business
+- Includes: column mappings, encoding, export instructions, file naming conventions
+- Auto-detection rules documented
+
+**All input data now defined:**
+- Phase 1: Revenue (salary, bonuses, rental)
+- Phase 2: Expenses (16 categories, payment methods)
+- Phase 3: Accounts (personal, business, investments, loans)
+- Phase 4: Projections (salary increases, future expenses)
+- Phase 5: Data sources (paths, import formats)
 

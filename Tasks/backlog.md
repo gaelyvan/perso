@@ -6,11 +6,11 @@ Task index organized by priority. Large tasks (#L) link to detail files.
 
 ## Q1 - Urgent & Important ⏫
 
-- [ ] Pactole: Define all input data #L ⏫ 🛫 2025-12-29 → [[pactole]] (80% complete)
+_No tasks_
 
 ## Q2 - Important, Not Urgent 🔼
 
-_No tasks_
+- [ ] Pactole: Financial Simulation & Retirement Planning #L 🔼 → [[pactole-simulation]]
 
 ## Q3 - Urgent, Not Important 🔽
 
@@ -28,4 +28,4 @@ _No tasks_
 
 ## Completed (archive monthly)
 
-_No completed tasks_
+- [x] Pactole: Define all input data #L ⏫ → [[pactole]] ✅ 2025-12-30
