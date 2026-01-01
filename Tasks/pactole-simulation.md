@@ -66,13 +66,27 @@
 
 **TODO:** Verify Capacitor monthly expenses (currently A=1000€/m, B=550€/m)
 
-## Phase 4: Retirement Calculator
-- [ ] Input current French pension estimate (relevé de carrière)
-- [ ] Model pension evolution until retirement
-- [ ] Estimate retirement income needs (% of current expenses)
-- [ ] Required capital calculation ("the number")
-- [ ] Withdrawal strategy modeling
-- [ ] Gap analysis (pension + capital vs target)
+## Phase 4: Retirement Calculator ✅
+- [x] Input current French pension estimate (relevé de carrière)
+- [x] RetirementCalculator service (`services/retirement.py`)
+- [x] Retirement milestones for household (primary + spouse)
+- [x] Income timeline projection (salary → pension transition)
+- [x] Retirement income needs (configurable % of current expenses)
+- [x] Gap analysis (pension + other income vs target)
+- [x] Required capital calculation ("the number" using 4% rule)
+- [x] CLI command: `pactole retirement`
+- [x] Comprehensive test suite (9 tests)
+
+**Retirement findings (based on real config):**
+| Person | Retirement | Age | Monthly Net Pension |
+|--------|------------|-----|---------------------|
+| Sabine | Nov 2027 | 63 | 2,669€ |
+| Gael | Jan 2036 | 66 | 3,888€ |
+
+**Gap analysis (at 75% expense ratio):**
+- Target: 8,800€/month (75% of 11,733€ current expenses)
+- Combined pension: 6,557€/month + rental 1,000€/month
+- Coverage: 167.9% → **Surplus expected** (no capital withdrawal needed)
 
 ## Phase 5: Estate & Succession Planning
 - [ ] Total net worth calculation (financial + real estate - loans)
