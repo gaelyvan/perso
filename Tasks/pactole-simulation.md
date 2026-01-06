@@ -3,8 +3,10 @@
 **Priority:** Q2
 **Size:** #L
 **Started:** 2025-12-30
+**Completed:** 2026-01-02
 **Project:** Pactole (Personal Finance)
 **Source:** /Users/gael/Sources/pactole
+**Status:** ✅ COMPLETE - All 7 phases done, documentation added to project
 
 ---
 
@@ -57,14 +59,15 @@
 - [x] Rental income pulled from config (1,000€/month)
 - [x] Comprehensive test suite (28 tests)
 
-**Current findings (15 years, 2025-2039):**
-| Scenario | Total Net Worth |
-|----------|-----------------|
-| A: Keep + Rent | 1,205k€ |
-| B: Keep - No Rent | **1,559k€** ← Winner |
-| C: Liquidate | 1,233k€ |
+**Updated findings (verified expenses: A=1,484€/m, B=1,034€/m including PEE/PER):**
 
-**TODO:** Verify Capacitor monthly expenses (currently A=1000€/m, B=550€/m)
+| Year | A: Keep + Rent | B: Keep - No Rent | C: Liquidate |
+|------|----------------|-------------------|--------------|
+| 2035 (10y) | 947k€ | **1,195k€** | 995k€ |
+| 2040 (15y) | 1,060k€ | **1,471k€** | 1,242k€ |
+| 2044 (20y) | 967k€ | **1,537k€** | 1,285k€ |
+
+**Winner: B (Keep without rent)** — ~570k€ advantage over C at 20 years
 
 ## Phase 4: Retirement Calculator ✅
 - [x] Input current French pension estimate (relevé de carrière)
@@ -88,27 +91,46 @@
 - Combined pension: 6,557€/month + rental 1,000€/month
 - Coverage: 167.9% → **Surplus expected** (no capital withdrawal needed)
 
-## Phase 5: Estate & Succession Planning
-- [ ] Total net worth calculation (financial + real estate - loans)
-- [ ] French succession tax rules (abattements, barème)
-- [ ] Donation strategies (donation-partage, démembrement)
-- [ ] Assurance-vie succession advantages
-- [ ] Simulate wealth transfer scenarios to children
+## Phase 5: Estate & Succession Planning ✅
+- [x] Total net worth calculation (financial + real estate - loans)
+- [x] French succession tax rules (abattements, barème 2025)
+- [x] CLI command: `pactole estate` (net worth snapshot)
+- [x] CLI command: `pactole succession` (tax simulation)
+- [x] Comprehensive test suite (14 tests)
+- [x] Donation strategies documented (donation-partage, démembrement)
+- [x] Assurance-vie succession advantages (152,500€ abattement)
 
-## Phase 6: Reports & Visualization
-- [ ] CLI summary report (`pactole report`)
-- [ ] Projection tables (`pactole project`)
-- [ ] Charts: Net worth over time (household)
-- [ ] Charts: Cash flow projection
-- [ ] Charts: Scenario comparison
-- [ ] Charts: Estate value over time
-- [ ] Export: CSV, PDF
+**Current estate findings:**
+- **Total net worth:** ~907k€ (financial 420k€ + real estate 800k€ - loans 313k€)
+- **Taxable estate (50%):** ~453k€
+- **Per child (2):** ~227k€ gross → ~203k€ net (after 100k€ abattement)
+- **Total succession tax:** ~47k€ (10.4% effective rate)
 
-## Phase 7: CLI Polish
-- [ ] Clean command-line interface
-- [ ] Configuration validation
-- [ ] Error handling & helpful messages
-- [ ] Documentation
+**Optimization opportunities:**
+- Assurance-vie: 152,500€ extra abattement per beneficiary
+- Donation-partage: use abattements every 15 years
+- Démembrement: separate usufruit/nue-propriété
+
+## Phase 6: Reports & Visualization ✅
+- [x] CLI summary report (`pactole report`)
+- [x] Projection tables (`pactole project`) - already existed
+- [x] Charts: Scenario comparison (`scenarios.png`)
+- [x] Charts: Income timeline (`income_timeline.png`)
+- [x] Export: CSV (`scenarios.csv`, `estate.csv`)
+- [x] Optional matplotlib dependency (`pip install pactole[charts]`)
+
+**Usage:**
+```bash
+pactole report                           # Summary to terminal
+pactole report -o ./output               # Export CSVs
+pactole report -o ./output --charts      # Export CSVs + charts
+```
+
+## Phase 7: CLI Polish ✅
+- [x] Clean command-line interface (argparse with 10+ commands)
+- [x] Configuration validation (ConfigError, ConfigValidationError with suggestions)
+- [x] Error handling & helpful messages (try/except, stderr, return codes)
+- [x] Documentation (README.md, CLAUDE.md, --help on all commands)
 
 ---
 

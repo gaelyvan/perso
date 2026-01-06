@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Notes/2025-12-31_recette-tarte-pomme-de-terre-viande-hachee.md",
+                "file": "Notes/banq.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2025-12-31_recette-tarte-pomme-de-terre-viande-hachee"
+              "title": "banq"
             }
           }
         ]
@@ -78,7 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200.5
+    "width": 233.5
   },
   "right": {
     "id": "69b7fab242b17277",
@@ -196,13 +196,15 @@
   },
   "active": "b5bfeae333be32ee",
   "lastOpenFiles": [
+    "Tasks/backlog.md",
+    "Notes/banq.md",
     "Tasks/pactole-simulation.md",
-    "Notes/2025-12-31_recette-tarte-pomme-de-terre-viande-hachee.md",
-    "CLAUDE.md",
     "Tasks/pactole.md",
+    "Notes/Recipe/2025-12-31_recette-tarte-pomme-de-terre-viande-hachee.md",
+    "Notes/Recipe",
+    "CLAUDE.md",
     "Tasks/pactole-simulation.md.tmp.62815.1767097673921",
     "Tasks/pactole-simulation.md.tmp.62815.1767097662731",
-    "Tasks/backlog.md",
     "Tasks/backlog.md.tmp.62815.1767096425853",
     "Tasks/backlog.md.tmp.62815.1767095079403",
     "Tasks/pactole.md.tmp.27037.1767022792538",
@@ -211,7 +213,6 @@
     "Articles",
     "Ideas",
     "Notes",
-    "Tasks",
-    "Daily"
+    "Tasks"
   ]
 }

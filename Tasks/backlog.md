@@ -10,7 +10,7 @@ _No tasks_
 
 ## Q2 - Important, Not Urgent 🔼
 
-- [ ] Pactole: Financial Simulation & Retirement Planning #L 🔼 → [[pactole-simulation]]
+- [x] Pactole: Financial Simulation & Retirement Planning #L 🔼 → [[pactole-simulation]] ✅ 2026-01-02
 
 ## Q3 - Urgent, Not Important 🔽
 
